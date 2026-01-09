@@ -5,57 +5,41 @@ from datetime import datetime
 from scipy.stats import pearsonr, linregress
 
 
-def analyze_dataset(df):
+def get_tendencia(years, values):
     """
-    Informació bàsica sobre l'anàlisis estadística que estem realitzant.
+    Funció que ens interpreta el pendent resultat de calcular la regressió lineal
+    per acabar categoritzant l'evolució en tres categories diferents:
+    estable, creixent i decreixent.
 
     Args:
-        df (pd.DataFrame): Dataset fusionat a analitzar estadísticament.
+        years (list): Llista amb els noms dels períodes temporals (ex: ['19-20', '20-21']).
+        values (list): Llista de valors numèrics (mitjanes) corresponents a cada període.
     Returns:
-        dict: Un diccionari amb el resum estadístic complet (metadades,
-              correlacions, anàlisi per branca i rànquings).
+        str: Categorització de la tendència: 'creciente', 'decreciente' o 'estable'.
     """
+    slope, _, _, _, _ = linregress(range(len(years)), values)
+    if slope > 0.01:
+        return "creciente"
+    if slope < -0.01:
+        return "decreciente"
+    return "estable"
 
-    # Calculem la informació bàsica de l'anàlisi.
-    metadata = {
-        "fecha_analisis": datetime.now().strftime("%Y-%m-%d"),
-        "num_registros": int(len(df)),
-        "periodo_temporal": sorted(df['Curs Acadèmic'].unique().tolist())
-    }
 
-    # Calculem la correlació entre l'abandonament i rendiment.
-    corr, p_value = pearsonr(
-        df['% Abandonament a primer curs'].dropna(),
-        df['Taxa rendiment'].dropna()
-    )
+def get_branch_analysis(df, branches):
+    """
+    Realitza l'anàlisi estadístic detallat per a cada branca d'estudi.
 
-    global_stats = {
-        "abandono_medio": round(float(df['% Abandonament a primer curs'].mean()), 2),
-        "rendimiento_medio": round(float(df['Taxa rendiment'].mean()), 2),
-        "correlacion_abandono_rendimiento": round(float(corr), 2)
-    }
+    Agrupa les dades per any acadèmic, calcula les mitjanes, desviacions
+    i les tendències temporals per a cada branca de coneixement.
 
-    # Calculem les estadístiques específiques per branca.
+    Args:
+        df (pd.DataFrame): Dataset fusionat.
+        branches (numpy.ndarray): Llista de branques a analitzar.
+
+    Returns:
+        dict: Diccionari on cada clau és una branca amb les seves estadístiques i tendències.
+    """
     analysis_branch = {}
-    branches = df['Branca'].unique()
-
-    def get_tendencia(years, values):
-        """
-            Funció que ens interpreta el pendent resultat de calcular la regressió lineal
-            per acabar categoritzant l'evolució en tres categories diferents:
-            estable, creixent i decreixent.
-
-            Args:
-                years (list): Llista amb els noms dels períodes temporals (ex: ['19-20', '20-21']).
-                values (list): Llista de valors numèrics (mitjanes) corresponents a cada període.
-            Returns:
-                str: Categorització de la tendència: 'creciente', 'decreciente' o 'estable'.
-            """
-        slope, _, _, _, _ = linregress(range(len(years)), values)
-        if slope > 0.01: return "creciente"
-        if slope < -0.01: return "decreciente"
-        return "estable"
-
     for branch in branches:
         branch_data = df[df['Branca'] == branch]
 
@@ -70,19 +54,49 @@ def analyze_dataset(df):
         abandonment_values = branch_by_year['% Abandonament a primer curs'].tolist()
         performance_values = branch_by_year['Taxa rendiment'].tolist()
 
+        # Seleccionem les columnes per facilitar el càlcul d'estadístics
+        col_aband = branch_data['% Abandonament a primer curs']
+        col_perf = branch_data['Taxa rendiment']
+
         analysis_branch[branch] = {
-            "abandono_medio": round(float(branch_data['% Abandonament a primer curs'].mean()), 2),
-            "abandono_std": round(float(branch_data['% Abandonament a primer curs'].std()), 2),
-            "abandono_min": round(float(branch_data['% Abandonament a primer curs'].min()), 2),
-            "abandono_max": round(float(branch_data['% Abandonament a primer curs'].max()), 2),
-            "rendimiento_medio": round(float(branch_data['Taxa rendiment'].mean()), 2),
-            "rendimiento_std": round(float(branch_data['Taxa rendiment'].std()), 2),
-            "rendimiento_min": round(float(branch_data['Taxa rendiment'].min()), 2),
-            "rendimiento_max": round(float(branch_data['Taxa rendiment'].max()), 2),
+            "abandono_medio": round(float(col_aband.mean()), 2),
+            "abandono_std": round(float(col_aband.std()), 2),
+            "abandono_min": round(float(col_aband.min()), 2),
+            "abandono_max": round(float(col_aband.max()), 2),
+            "rendimiento_medio": round(float(col_perf.mean()), 2),
+            "rendimiento_std": round(float(col_perf.std()), 2),
+            "rendimiento_min": round(float(col_perf.min()), 2),
+            "rendimiento_max": round(float(col_perf.max()), 2),
             "tendencia_abandono": get_tendencia(years, abandonment_values),
             "tendencia_rendimiento": get_tendencia(years, performance_values),
             "años_anomalos": []
         }
+    return analysis_branch
+
+
+def analyze_dataset(df):
+    """
+    Informació bàsica sobre l'anàlisis estadística que estem realitzant.
+
+    Args:
+        df (pd.DataFrame): Dataset fusionat a analitzar estadísticament.
+    Returns:
+        dict: Un diccionari amb el resum estadístic complet (metadades,
+              correlacions, anàlisi per branca i rànquings).
+    """
+    # Calculem la informació bàsica de l'anàlisi.
+    metadata = {
+        "fecha_analisis": datetime.now().strftime("%Y-%m-%d"),
+        "num_registros": int(len(df)),
+        "periodo_temporal": sorted(df['Curs Acadèmic'].unique().tolist())
+    }
+
+    # Calculem la correlació entre l'abandonament i rendiment.
+    corr, _ = pearsonr(df['% Abandonament a primer curs'].dropna(),
+                       df['Taxa rendiment'].dropna())
+
+    # Anàlisi detallat per branca.
+    analysis_branch = get_branch_analysis(df, df['Branca'].unique())
 
     # Ordenem de forma descendent per taxa de rendiment.
     performance_sorted_df = df.sort_values(
@@ -99,28 +113,31 @@ def analyze_dataset(df):
     )
 
     best_abandonment = abandonment_sorted_df["Branca"].iloc[0]
-    wort_abandonment = abandonment_sorted_df["Branca"].iloc[-1]
-
-    ranking_branch = {
-        "mejor_rendimiento": [best_performance_tax],
-        "peor_rendimiento": [worst_performance_tax],
-        "mayor_abandono": [best_abandonment],
-        "menor_abandono": [wort_abandonment]
-    }
+    worst_abandonment = abandonment_sorted_df["Branca"].iloc[-1]
 
     full_report = {
         "metadata": metadata,
-        "estadisticas_globales": global_stats,
+        "estadisticas_globales": {
+            "abandono_medio": round(float(df['% Abandonament a primer curs'].mean()), 2),
+            "rendimiento_medio": round(float(df['Taxa rendiment'].mean()), 2),
+            "correlacion_abandono_rendimiento": round(float(corr), 2)
+        },
         "analisis_por_rama": analysis_branch,
-        "ranking_ramas": ranking_branch
+        "ranking_ramas": {
+            "mejor_rendimiento": [best_performance_tax],
+            "peor_rendimiento": [worst_performance_tax],
+            "mayor_abandono": [best_abandonment],
+            "menor_abandono": [worst_abandonment]
+        }
     }
 
+    # Exportació a JSON
     output_path = "src/report/analisi_estadistic.json"
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(full_report, f, indent=2, ensure_ascii=False)
 
-    print(f"Informe generat a: {output_path}")
+    print(f"Informe generat correctament a: {output_path}")
 
     return full_report
