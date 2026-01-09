@@ -1,13 +1,22 @@
-import pandas as pd
+"""
+Mòdul de càrrega dels datasets acadèmics.
+
+Aquest mòdul proporciona les eines per importar fitxers Excel de rendiment
+i abandonament universitari, incloent-hi un menú interactiu per a la
+selecció de fitxers.
+"""
+
 import os
 import warnings
+import pandas as pd
 
 
 def load_dataset(path=None):
     """
     Carrega el dataset passat per paràmetre.
     Si no es proporciona cap ruta, es demana a l'usuari quin dataset carregar.
-    En cas de que l'usuari seleccioni una opció de dataset invàlida, carreguem el primer per defecte.
+    En cas de que l'usuari seleccioni una opció de dataset invàlida,
+    carreguem el primer per defecte.
 
     Args:
         path (str, opcional): Ruta al dataset. Per defecte és None.
@@ -30,7 +39,8 @@ def load_dataset(path=None):
             path = "data/taxa_abandonament.xlsx"
         else:
             print("Opció no vàlida. Carreguem el primer per defecte.")
-            # Presa de decisió: si l'usuari no introdueix una opció vàlida, seleccionem per defecte el primer dataset.
+            # Presa de decisió: si l'usuari no introdueix una opció vàlida,
+            # seleccionem per defecte el primer dataset.
             path = "data/rendiment_estudiants.xlsx"
 
     if not os.path.exists(path):

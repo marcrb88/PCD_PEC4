@@ -1,8 +1,14 @@
-import pandas as pd
+"""
+Mòdul d'anàlisi estadística automatitzada pel rendiments dels estudiants universitaris de Catalunya.
+
+Aquest mòdul conté funcions per calcular estadístiques tant globals com específiques
+per branca d'estudi, tendències de rendiment i abandonament
+i generar un informe final en format JSON.
+"""
 import json
 import os
 from datetime import datetime
-from scipy.stats import pearsonr, linregress
+from scipy.stats import linregress, pearsonr
 
 
 def get_tendencia(years, values):

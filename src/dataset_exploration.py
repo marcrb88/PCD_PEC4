@@ -1,3 +1,10 @@
+"""
+Mòdul d'exploració dels datasets.
+
+Aquest mòdul conté les funcions necessàries per realitzar una inspecció
+inicial dels datasets, incloent la visualització de mostres, l'estructura
+de columnes i la informació tècnica dels tipus de dades.
+"""
 def perform_dataset_exploration(df):
     """
     Realitza una exploració bàsica del DataFrame proporcionat.

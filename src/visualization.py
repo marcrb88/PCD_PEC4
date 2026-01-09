@@ -1,5 +1,13 @@
-import matplotlib.pyplot as plt
+"""
+Mòdul de visualització de tendències acadèmiques universitàries.
+
+Aquest mòdul conté les eines per generar representacions gràfiques de l'evolució
+temporal de les mètriques educatives. Utilitza Matplotlib per crear subplots
+comparatius entre branques d'estudi i genera un arxiu
+.png que desarem al directori src/img/.
+"""
 import os
+import matplotlib.pyplot as plt
 
 
 def plot_temporal_trends(df, student_name):
@@ -21,21 +29,21 @@ def plot_temporal_trends(df, student_name):
     """
     # Ordenem el dataframe per Curs Acadèmic (per default ascendent -> de més antic a més actual).
     df = df.sort_values('Curs Acadèmic')
-    branques = df['Branca'].unique()
+    branches = df['Branca'].unique()
 
     # Creem el gràfic amb 2 subplots: taxa de rendiment acadèmic i % abandonament acadèmic.
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 10))
+    _, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 10))
 
     # Definim els colors.
-    colors = plt.cm.tab10.colors
+    colors = plt.get_cmap('tab10').colors
 
     # SUBPLOT 1: Abandonament acadèmic.
-    for i, branca in enumerate(branques):
-        subset = df[df['Branca'] == branca]
+    for i, branch in enumerate(branches):
+        subset = df[df['Branca'] == branch]
         # Agrupem per curs perquè hi ha diverses files per branca i calculem la mitjana.
         plot_data = subset.groupby('Curs Acadèmic')['% Abandonament a primer curs'].mean()
 
-        ax1.plot(plot_data.index, plot_data.values, marker='o', label=branca, color=colors[i % 10])
+        ax1.plot(plot_data.index, plot_data.values, marker='o', label=branch, color=colors[i % 10])
 
     # Afegim informació general del gràfic: títol, etiqueta, llegenda.
     ax1.set_title("Evolució del % d'Abandonament per curs acadèmic", fontsize=14, fontweight='bold')
@@ -44,15 +52,18 @@ def plot_temporal_trends(df, student_name):
     ax1.legend(title="Branques", bbox_to_anchor=(1.05, 1), loc='upper left')
 
     # SUBPLOT 2: Rendiment acadèmic.
-    for i, branca in enumerate(branques):
-        subset = df[df['Branca'] == branca]
+    for i, branch in enumerate(branches):
+        subset = df[df['Branca'] == branch]
         # Fem el mateix que amb l'abandonament, agrupem per curs i calculem la mitjana.
         plot_data = subset.groupby('Curs Acadèmic')['Taxa rendiment'].mean()
 
-        ax2.plot(plot_data.index, plot_data.values, marker='s', label=branca, color=colors[i % 10])
+        ax2.plot(plot_data.index, plot_data.values, marker='s', label=branch, color=colors[i % 10])
 
     # Afegim informació general del gràfic: títol, etiquetes, llegenda.
-    ax2.set_title("Evolució de la Taxa de Rendiment per curs acadèmic", fontsize=14, fontweight='bold')
+    ax2.set_title("Evolució de la Taxa de Rendiment per curs acadèmic",
+                  fontsize=14,
+                  fontweight='bold'
+                  )
     ax2.set_xlabel("Curs Acadèmic")
     ax2.set_ylabel("Taxa de Rendiment (0-1)")
     ax2.grid(True, linestyle='--', alpha=0.7)
