@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "fecha_analisis": "2026-01-09",
+    "num_registros": 1081,
+    "periodo_temporal": [
+      "19-20",
+      "20-21",
+      "21-22",
+      "22-23"
+    ]
+  },
+  "estadisticas_globales": {
+    "abandono_medio": 0.1,
+    "rendimiento_medio": 0.88,
+    "correlacion_abandono_rendimiento": -0.44
+  },
+  "analisis_por_rama": {
+    "Ciències de la salut": {
+      "abandono_medio": 0.07,
+      "abandono_std": 0.09,
+      "abandono_min": 0.0,
+      "abandono_max": 1.0,
+      "rendimiento_medio": 0.91,
+      "rendimiento_std": 0.07,
+      "rendimiento_min": 0.61,
+      "rendimiento_max": 1.0,
+      "tendencia_abandono": "decreciente",
+      "tendencia_rendimiento": "estable",
+      "años_anomalos": []
+    },
+    "Ciències socials i jurídiques": {
+      "abandono_medio": 0.09,
+      "abandono_std": 0.07,
+      "abandono_min": 0.0,
+      "abandono_max": 0.54,
+      "rendimiento_medio": 0.9,
+      "rendimiento_std": 0.07,
+      "rendimiento_min": 0.59,
+      "rendimiento_max": 1.0,
+      "tendencia_abandono": "estable",
+      "tendencia_rendimiento": "estable",
+      "años_anomalos": []
+    },
+    "Arts i humanitats": {
+      "abandono_medio": 0.14,
+      "abandono_std": 0.12,
+      "abandono_min": 0.0,
+      "abandono_max": 1.0,
+      "rendimiento_medio": 0.85,
+      "rendimiento_std": 0.1,
+      "rendimiento_min": 0.38,
+      "rendimiento_max": 1.0,
+      "tendencia_abandono": "estable",
+      "tendencia_rendimiento": "decreciente",
+      "años_anomalos": []
+    },
+    "Enginyeria i arquitectura": {
+      "abandono_medio": 0.1,
+      "abandono_std": 0.07,
+      "abandono_min": 0.0,
+      "abandono_max": 0.41,
+      "rendimiento_medio": 0.84,
+      "rendimiento_std": 0.08,
+      "rendimiento_min": 0.64,
+      "rendimiento_max": 1.0,
+      "tendencia_abandono": "estable",
+      "tendencia_rendimiento": "estable",
+      "años_anomalos": []
+    },
+    "Ciències": {
+      "abandono_medio": 0.07,
+      "abandono_std": 0.07,
+      "abandono_min": 0.0,
+      "abandono_max": 0.5,
+      "rendimiento_medio": 0.9,
+      "rendimiento_std": 0.08,
+      "rendimiento_min": 0.51,
+      "rendimiento_max": 1.0,
+      "tendencia_abandono": "estable",
+      "tendencia_rendimiento": "estable",
+      "años_anomalos": []
+    }
+  },
+  "ranking_ramas": {
+    "mejor_rendimiento": [
+      "Enginyeria i arquitectura"
+    ],
+    "peor_rendimiento": [
+      "Arts i humanitats"
+    ],
+    "mayor_abandono": [
+      "Ciències de la salut"
+    ],
+    "menor_abandono": [
+      "Arts i humanitats"
+    ]
+  }
+}
