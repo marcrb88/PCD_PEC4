@@ -1,3 +1,4 @@
+LICENSE
 README.md
 setup.py
 src/PEC4_Roige_Benaiges_Marc.egg-info/PKG-INFO
