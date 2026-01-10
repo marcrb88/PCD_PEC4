@@ -5,15 +5,20 @@ Aquest mòdul verifica la generació del gràfic de tendències temporals
 i assegura que el fitxer .png es crea correctament al directori de proves.
 """
 
+# 1. Standard Library Imports
 import unittest
 import os
-import pandas as pd
+
+# 2. Third Party Imports
 import matplotlib
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# 3. Local Application Imports
+from src.visualization import plot_temporal_trends
 
 # Configurem Matplotlib per a mode no interactiu (no obre finestres).
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-from src.visualization import plot_temporal_trends
 
 
 class TestExercici3(unittest.TestCase):
@@ -53,25 +58,21 @@ class TestExercici3(unittest.TestCase):
         if os.path.exists(self.expected_path):
             self.assertGreater(os.path.getsize(self.expected_path), 0)
 
+    # CORRECCIÓ: Aquesta funció ara està fora de l'anterior (unidented)
     def test_plot_content_logic(self):
         """Verifica que la funció no falla amb un DataFrame d'una sola branca."""
         single_branch_df = self.test_df[self.test_df['Branca'] == 'Salut']
 
-        try:
-            plot_temporal_trends(single_branch_df, "Single_Branch")
-            success = True
-        except Exception as e:
-            print(f"Error detectat: {e}")
-            success = False
-
-        self.assertTrue(success, "La funció ha fallat amb dades d'una sola branca.")
+        # Si falla, unittest ho marca com Error automàticament
+        plot_temporal_trends(single_branch_df, "Single_Branch")
 
     def tearDown(self):
         """Neteja de les imatges de test generades."""
-        # Si vols conservar les imatges per revisar-les, comenta les següents línies.
+        # Neteja imatge del primer test
         if os.path.exists(self.expected_path):
             os.remove(self.expected_path)
 
+        # Neteja imatge del segon test (assumint que es guarda així)
         single_path = "src/img/evolucio_single_branch.png"
         if os.path.exists(single_path):
             os.remove(single_path)

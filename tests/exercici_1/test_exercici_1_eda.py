@@ -39,14 +39,9 @@ class TestEDA(unittest.TestCase):
     def test_perform_exploration_empty_df(self):
         """Verifica que la funció no peta amb un DataFrame buit."""
         empty_df = pd.DataFrame()
-        try:
-            perform_dataset_exploration(empty_df)
-            success = True
-        except Exception as e:
-            print(f"Error amb DF buit: {e}")
-            success = False
 
-        self.assertTrue(success)
+        with patch('sys.stdout', new=io.StringIO()):
+            perform_dataset_exploration(empty_df)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,7 @@
+README.md
+setup.py
+src/PEC4_Roige_Benaiges_Marc.egg-info/PKG-INFO
+src/PEC4_Roige_Benaiges_Marc.egg-info/SOURCES.txt
+src/PEC4_Roige_Benaiges_Marc.egg-info/dependency_links.txt
+src/PEC4_Roige_Benaiges_Marc.egg-info/requires.txt
+src/PEC4_Roige_Benaiges_Marc.egg-info/top_level.txt

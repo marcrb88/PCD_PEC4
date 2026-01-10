@@ -1,8 +1,8 @@
 """
 Tests unitaris per a l'exercici 4: Anàlisi estadística automatitzada.
 
-Aquest mòdul verifica les metadades, estadístiques globals, els càlculs de tendències, estadístiques per branca
-i la correcta generació de l'informe JSON.
+Aquest mòdul verifica les metadades, estadístiques globals, els càlculs de tendències,
+estadístiques per branca i la correcta generació de l'informe JSON.
 """
 
 import unittest
