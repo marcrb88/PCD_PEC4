@@ -83,16 +83,16 @@
   },
   "ranking_ramas": {
     "mejor_rendimiento": [
-      "Enginyeria i arquitectura"
+      "Ciències de la salut"
     ],
     "peor_rendimiento": [
       "Arts i humanitats"
     ],
     "mayor_abandono": [
-      "Ciències de la salut"
+      "Arts i humanitats"
     ],
     "menor_abandono": [
-      "Arts i humanitats"
+      "Enginyeria i arquitectura"
     ]
   }
 }
