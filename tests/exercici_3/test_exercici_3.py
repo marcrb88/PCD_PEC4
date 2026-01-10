@@ -58,21 +58,20 @@ class TestExercici3(unittest.TestCase):
         if os.path.exists(self.expected_path):
             self.assertGreater(os.path.getsize(self.expected_path), 0)
 
-    # CORRECCIÓ: Aquesta funció ara està fora de l'anterior (unidented)
     def test_plot_content_logic(self):
         """Verifica que la funció no falla amb un DataFrame d'una sola branca."""
         single_branch_df = self.test_df[self.test_df['Branca'] == 'Salut']
 
-        # Si falla, unittest ho marca com Error automàticament
+        # Si falla, unittest ho marca com Error automàticament.
         plot_temporal_trends(single_branch_df, "Single_Branch")
 
     def tearDown(self):
         """Neteja de les imatges de test generades."""
-        # Neteja imatge del primer test
+        # Neteja imatge del primer test.
         if os.path.exists(self.expected_path):
             os.remove(self.expected_path)
 
-        # Neteja imatge del segon test (assumint que es guarda així)
+        # Neteja imatge del segon test.
         single_path = "src/img/evolucio_single_branch.png"
         if os.path.exists(single_path):
             os.remove(single_path)

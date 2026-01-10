@@ -14,7 +14,7 @@ class TestEDA(unittest.TestCase):
 
     def setUp(self):
         """S'executa abans de cada test."""
-        # Creem un DataFrame de prova
+        # Creem un DataFrame de prova.
         self.sample_df = pd.DataFrame({
             'ColumnaA': [1, 2, 3],
             'ColumnaB': ['A', 'B', 'C']
@@ -22,17 +22,17 @@ class TestEDA(unittest.TestCase):
 
     def test_perform_exploration_output(self):
         """Verifica que la funció imprimeix les seccions d'exploració requerides."""
-        # Utilitzem io.StringIO per capturar el que es printa a la consola
+        # Utilitzem io.StringIO per capturar el que es printa a la consola.
         with patch('sys.stdout', new=io.StringIO()) as fake_out:
             perform_dataset_exploration(self.sample_df)
             output = fake_out.getvalue()
 
-        # Comprovem que apareixen els títols que has definit a la funció
+        # Comprovem que apareixen els títols definits a la funció.
         self.assertIn("--- 1.1. Cinc primeres files ---", output)
         self.assertIn("--- 1.2. Columnes del dataset ---", output)
         self.assertIn("--- 1.3. Informació general (info) ---", output)
 
-        # Verifiquem que apareixen els noms de les columnes
+        # Verifiquem que apareixen els noms de les columnes.
         self.assertIn("ColumnaA", output)
         self.assertIn("ColumnaB", output)
 

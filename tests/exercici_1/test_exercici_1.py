@@ -47,12 +47,11 @@ class TestExercici1(unittest.TestCase):
 
         load_dataset(None)
 
-        # ÚS DELS ARGUMENTS (Evita W0613 i millora el test):
-        # 1. Verifiquem que s'ha demanat input a l'usuari
+        # 1. Verifiquem que s'ha demanat input a l'usuari.
         mock_input.assert_called_once()
-        # 2. Verifiquem que s'ha comprovat si existeix el fitxer correcte
+        # 2. Verifiquem que s'ha comprovat si existeix el fitxer correcte.
         mock_exists.assert_called_with("data/taxa_abandonament.xlsx")
-        # 3. Verifiquem que s'ha intentat llegir el fitxer correcte
+        # 3. Verifiquem que s'ha intentat llegir el fitxer correcte.
         mock_read_excel.assert_called_with("data/taxa_abandonament.xlsx")
 
     @patch('builtins.input', return_value='99')
@@ -65,7 +64,7 @@ class TestExercici1(unittest.TestCase):
         load_dataset(None)
 
         mock_input.assert_called_once()
-        # Si l'opció no és vàlida, hauria d'anar al de rendiment per defecte
+        # Si l'opció no és vàlida, hauria d'anar al de rendiment per defecte.
         mock_exists.assert_called_with("data/rendiment_estudiants.xlsx")
         mock_read_excel.assert_called_with("data/rendiment_estudiants.xlsx")
 

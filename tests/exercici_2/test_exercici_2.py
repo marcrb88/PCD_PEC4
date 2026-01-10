@@ -62,7 +62,7 @@ class TestExercici2(unittest.TestCase):
 
     def test_aggregate_by_branch(self):
         """Verifica que l'agrupació calcula correctament la mitjana."""
-        # Creem un cas amb dues files que s'han d'agrupar en una (mateixes claus).
+        # Creem un cas amb dues files que s'han d'agrupar en una.
         df_to_group = pd.DataFrame({
             'Curs Acadèmic': ['21-22', '21-22'],
             'Tipus universitat': ['P', 'P'],

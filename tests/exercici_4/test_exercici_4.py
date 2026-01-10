@@ -20,8 +20,8 @@ class TestExercici4(unittest.TestCase):
         self.test_df = pd.DataFrame({
             'Curs Acadèmic': ['2020-21', '2021-22', '2022-23', '2020-21', '2021-22', '2022-23'],
             'Branca': ['Branca A', 'Branca A', 'Branca A', 'Branca B', 'Branca B', 'Branca B'],
-            'Taxa rendiment': [0.1, 0.5, 0.9, 0.9, 0.5, 0.1],  # Creixent vs Decreixent
-            '% Abandonament a primer curs': [0.2, 0.21, 0.2, 0.5, 0.5, 0.5]  # Estable
+            'Taxa rendiment': [0.1, 0.5, 0.9, 0.9, 0.5, 0.1],
+            '% Abandonament a primer curs': [0.2, 0.21, 0.2, 0.5, 0.5, 0.5]
         })
         self.output_json = "src/report/analisi_estadistic.json"
 
