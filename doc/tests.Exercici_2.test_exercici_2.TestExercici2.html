@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "DTD/xhtml1-strict.dtd">
+<html>
+  
+
+  <head>
+    
+    <title>tests.Exercici_2.test_exercici_2.TestExercici2</title>
+    <meta name="generator" content="pydoctor 25.10.1"> 
+        
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="apidocs.css" />
+    <link rel="stylesheet" type="text/css" href="extra.css" />
+    
+</head>
+
+  <body>
+
+    
+
+    <nav class="navbar navbar-default mainnavbar">
+      
+  
+  <div class="container-fluid">
+
+
+    <div class="navbar-header">
+      
+      <div class="navlinks">
+        <span class="navbar-brand">
+          PCD_PEC4_Roige_Benaiges_Marc <a href="index.html">API Documentation</a>
+        </span>
+
+        <a href="moduleIndex.html">
+          Modules
+        </a>
+
+        <a href="classIndex.html">
+          Classes
+        </a>
+
+        <a href="nameIndex.html">
+          Names
+        </a>
+
+        <div id="search-box-container">
+          <div class="input-group">
+            <input id="search-box" type="search" name="search-query" placeholder="Search..." aria-label="Search" minlength="2" class="form-control" autocomplete="off" />
+            
+            <span class="input-group-btn">
+              <a style="display: none;" class="btn btn-default" id="search-clear-button" title="Clear" onclick="clearSearch()"><img src="fonts/x-circle.svg" alt="Clear" /></a>
+              <a class="btn btn-default" id="apidocs-help-button" title="Help" href="apidocs-help.html"><img src="fonts/info.svg" alt="Help" /></a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="search-results-container" style="display: none;">
+        
+        <div id="search-buttons">
+          <span class="label label-default" id="search-docstrings-button">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="toggle-search-in-docstrings-checkbox" value="false" onclick="toggleSearchInDocstrings()">
+              search in docstrings
+            </input>
+          </label>
+          </span>
+          
+        </div>
+        
+        <noscript>
+            <h1>Cannot search: JavaScript is not supported/enabled in your browser.</h1>
+        </noscript>
+
+        <div id="search-status"> </div>
+
+        <div class="warning" id="search-warn-box" style="display: none;">
+          <p class="rst-last"><span id="search-warn"></span></p>
+        </div>
+
+        <table id="search-results">
+          <!-- Filled dynamically by JS -->
+        </table>
+        
+        <div style="margin-top: 10px;">
+          <p>For more information on the search, visit the <a href="apidocs-help.html#rst-search">help page</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</nav>
+    
+    <div class="container-fluid">
+
+      <!-- Side navigation -->
+      <div class="sidebarcontainer" style="display: none;">
+        
+        <div class="sidebar"><nav class="sidebar">
+  
+
+  <div>
+
+      <div class="thingTitle">
+        <span>Class</span>
+        <code class="thisobject"><a href="tests.Exercici_2.test_exercici_2.TestExercici2.html" class="internal-link" title="This class"><wbr></wbr>Test<wbr></wbr>Exercici2</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        
+        
+
+        <div class="childrenKindTitle">Methods</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#setUp" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.setUp">set<wbr></wbr>Up</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#test_aggregate_by_branch" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_aggregate_by_branch">test<wbr></wbr>_aggregate<wbr></wbr>_by<wbr></wbr>_branch</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#test_clean_and_homogenize" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_clean_and_homogenize">test<wbr></wbr>_clean<wbr></wbr>_and<wbr></wbr>_homogenize</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#test_merge_datasets_inner" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_inner">test<wbr></wbr>_merge<wbr></wbr>_datasets<wbr></wbr>_inner</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#test_merge_datasets_no_match" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_no_match">test<wbr></wbr>_merge<wbr></wbr>_datasets<wbr></wbr>_no<wbr></wbr>_match</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+
+        <div class="childrenKindTitle">Attributes</div>
+        <ul>
+    
+    <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#aband_data" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.aband_data">aband<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#perf_data" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.perf_data">perf<wbr></wbr>_data</a></code>
+            </div>
+        
+
+    </li>
+</ul> 
+
+        
+         
+        
+      </div>
+  </div><div>
+
+      <div class="thingTitle">
+        <span>Module</span>
+        <code><a href="tests.Exercici_2.test_exercici_2.html" class="internal-link" title="The parent of this class">test<wbr></wbr>_exercici<wbr></wbr>_2</a></code> 
+      </div>
+      
+      <div>
+        
+
+        
+         
+
+        <div class="childrenKindTitle">Classes</div>
+        <ul>
+    
+    <li class=" thisobject">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="tests.Exercici_2.test_exercici_2.TestExercici2.html" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2"><wbr></wbr>Test<wbr></wbr>Exercici2</a></code>
+            </div>
+        
+
+    </li>
+</ul>
+
+        
+         
+
+        
+         
+
+        
+         
+
+        
+         
+        
+      </div>
+  </div>
+
+</nav>
+        </div>
+        <div id="collapse-sidebar">
+          <a class="btn btn-link" onclick="toggleSideBarCollapse()" title="Toggle Sidebar Collapse">
+          </a>
+        </div> 
+        <script src="sidebartoggle.js" type="text/javascript"></script>
+       
+      </div>
+
+      <main class="">
+        
+
+        
+
+        <div class="page-header">
+          <h1 class="class"><code><code><a href="tests.html" class="internal-link">tests</a></code><wbr></wbr>.<code><a href="tests.Exercici_2.html" class="internal-link" title="tests.Exercici_2">Exercici_2</a></code><wbr></wbr>.<code><a href="tests.Exercici_2.test_exercici_2.html" class="internal-link" title="tests.Exercici_2.test_exercici_2">test_exercici_2</a></code><wbr></wbr>.<code><a href="tests.Exercici_2.test_exercici_2.TestExercici2.html" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2">TestExercici2</a></code></code></h1>
+          <div id="show-private">
+            <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
+          </div>
+        </div>
+
+        <div class="categoryHeader">
+          class documentation
+        </div>
+
+        <div class="extrasDocstring">
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">TestExercici2</span>(unittest.TestCase):</code></p><p><a href="classIndex.html#tests.Exercici_2.test_exercici_2.TestExercici2">View In Hierarchy</a></p>
+        </div>
+
+        <div class="moduleDocstring">
+          <div><p>Suite de tests per al processament i transformació de dataframes.</p></div>
+        </div>
+
+        <div id="split-tables">
+          <table class="children sortable" id="id15">
+  
+  
+  <tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#setUp" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.setUp">set<wbr></wbr>Up</a></code></td>
+    <td>Configura l'entorn de proves i dades simulades.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#test_aggregate_by_branch" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_aggregate_by_branch">test<wbr></wbr>_aggregate<wbr></wbr>_by<wbr></wbr>_branch</a></code></td>
+    <td>Verifica que l'agrupació calcula correctament la mitjana.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#test_clean_and_homogenize" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_clean_and_homogenize">test<wbr></wbr>_clean<wbr></wbr>_and<wbr></wbr>_homogenize</a></code></td>
+    <td>Verifica que les columnes es reanomenen i s'eliminen correctament.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#test_merge_datasets_inner" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_inner">test<wbr></wbr>_merge<wbr></wbr>_datasets<wbr></wbr>_inner</a></code></td>
+    <td>Verifica que la fusió inner només manté les files coincidents.</td>
+  </tr><tr class="method">
+    
+    <td>Method</td>
+    <td><code><a href="#test_merge_datasets_no_match" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_no_match">test<wbr></wbr>_merge<wbr></wbr>_datasets<wbr></wbr>_no<wbr></wbr>_match</a></code></td>
+    <td>Verifica que si no hi ha coincidències, el merge és buit.</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#aband_data" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.aband_data">aband<wbr></wbr>_data</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#perf_data" class="internal-link" title="tests.Exercici_2.test_exercici_2.TestExercici2.perf_data">perf<wbr></wbr>_data</a></code></td>
+    <td><span class="rst-undocumented">Undocumented</span></td>
+  </tr>
+</table>
+          
+
+            
+        </div>
+
+        <div id="child-list">
+          <div class="basemethod">
+  
+  
+  <a name="tests.Exercici_2.test_exercici_2.TestExercici2.setUp">
+    
+  </a>
+  <a name="setUp">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">setUp</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>):</span>
+    
+    <a class="headerLink" href="#setUp" title="tests.Exercici_2.test_exercici_2.TestExercici2.setUp">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Configura l'entorn de proves i dades simulades.</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tests.Exercici_2.test_exercici_2.TestExercici2.test_aggregate_by_branch">
+    
+  </a>
+  <a name="test_aggregate_by_branch">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_aggregate_by_branch</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>):</span>
+    
+    <a class="headerLink" href="#test_aggregate_by_branch" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_aggregate_by_branch">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifica que l'agrupació calcula correctament la mitjana.</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tests.Exercici_2.test_exercici_2.TestExercici2.test_clean_and_homogenize">
+    
+  </a>
+  <a name="test_clean_and_homogenize">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_clean_and_homogenize</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>):</span>
+    
+    <a class="headerLink" href="#test_clean_and_homogenize" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_clean_and_homogenize">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifica que les columnes es reanomenen i s'eliminen correctament.</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_inner">
+    
+  </a>
+  <a name="test_merge_datasets_inner">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_merge_datasets_inner</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>):</span>
+    
+    <a class="headerLink" href="#test_merge_datasets_inner" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_inner">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifica que la fusió inner només manté les files coincidents.</p></div>
+  </div>
+</div><div class="basemethod">
+  
+  
+  <a name="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_no_match">
+    
+  </a>
+  <a name="test_merge_datasets_no_match">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">test_merge_datasets_no_match</span><span class="function-signature">(<span class="rst-sig-param"><span class="rst-undocumented">self</span></span>):</span>
+    
+    <a class="headerLink" href="#test_merge_datasets_no_match" title="tests.Exercici_2.test_exercici_2.TestExercici2.test_merge_datasets_no_match">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p>Verifica que si no hi ha coincidències, el merge és buit.</p></div>
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="tests.Exercici_2.test_exercici_2.TestExercici2.aband_data">
+    
+  </a>
+  <a name="aband_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">aband_data</span> =
+    
+    <a class="headerLink" href="#aband_data" title="tests.Exercici_2.test_exercici_2.TestExercici2.aband_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="tests.Exercici_2.test_exercici_2.TestExercici2.perf_data">
+    
+  </a>
+  <a name="perf_data">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">perf_data</span> =
+    
+    <a class="headerLink" href="#perf_data" title="tests.Exercici_2.test_exercici_2.TestExercici2.perf_data">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p class="undocumented">Undocumented</p></div>
+    
+  </div>
+</div>
+        </div>
+      
+      </main>
+    </div>
+
+    <footer class="navbar navbar-default">
+
+  
+  <div class="container-fluid">
+    <a href="index.html">API Documentation</a> for PCD_PEC4_Roige_Benaiges_Marc,
+  generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
+    25.10.1 at 2026-01-10 12:18:49.
+  </div>
+
+  <!-- Search related scripts needs to be loaded at the end of HTML 
+    parsing not to introduce overhead and display HTML data asap -->
+  <script src="ajax.js" type="text/javascript"></script>
+  <script src="searchlib.js" type="text/javascript"></script>
+  <script src="search.js" type="text/javascript"></script>
+
+</footer>
+  
+    <script src="pydoctor.js" type="text/javascript"></script>
+
+  </body>
+</html>

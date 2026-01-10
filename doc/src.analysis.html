@@ -32,7 +32,7 @@
       
       <div class="navlinks">
         <span class="navbar-brand">
-          PEC4_Roige_Benaiges_Marc <a href="index.html">API Documentation</a>
+          PCD_PEC4_Roige_Benaiges_Marc <a href="index.html">API Documentation</a>
         </span>
 
         <a href="moduleIndex.html">
@@ -135,6 +135,26 @@
             </div>
         
 
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_branch_analysis" class="internal-link" title="src.analysis.get_branch_analysis">get<wbr></wbr>_branch<wbr></wbr>_analysis</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#get_tendencia" class="internal-link" title="src.analysis.get_tendencia">get<wbr></wbr>_tendencia</a></code>
+            </div>
+        
+
     </li>
 </ul> 
 
@@ -152,7 +172,7 @@
 
       <div class="thingTitle">
         <span>Namespace Package</span>
-        <code><a href="index.html" class="internal-link" title="The parent of this module">src</a></code> 
+        <code><a href="src.html" class="internal-link" title="The parent of this module">src</a></code> 
       </div>
       
       <div>
@@ -278,7 +298,7 @@
         
 
         <div class="page-header">
-          <h1 class="module"><code><code><a href="index.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.analysis.html" class="internal-link" title="src.analysis">analysis</a></code></code></h1>
+          <h1 class="module"><code><code><a href="src.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.analysis.html" class="internal-link" title="src.analysis">analysis</a></code></code></h1>
           <div id="show-private">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -293,7 +313,9 @@
         </div>
 
         <div class="moduleDocstring">
-          <div><p class="undocumented">Undocumented</p></div>
+          <div><p>Mòdul d'anàlisi estadística automatitzada pel rendiments dels estudiants universitaris de Catalunya.</p>
+<p>Aquest mòdul conté funcions per calcular estadístiques tant globals com específiques per branca d'estudi, tendències de rendiment i abandonament i generar un informe final en format JSON.</p>
+</div>
         </div>
 
         <div id="split-tables">
@@ -304,7 +326,17 @@
     
     <td>Function</td>
     <td><code><a href="#analyze_dataset" class="internal-link" title="src.analysis.analyze_dataset">analyze<wbr></wbr>_dataset</a></code></td>
-    <td>Anàlisi estadística amb arrodoniment a 2 decimals per a tots els floats.</td>
+    <td>Informació bàsica sobre l'anàlisis estadística que estem realitzant.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_branch_analysis" class="internal-link" title="src.analysis.get_branch_analysis">get<wbr></wbr>_branch<wbr></wbr>_analysis</a></code></td>
+    <td>Realitza l'anàlisi estadístic detallat per a cada branca d'estudi.</td>
+  </tr><tr class="function">
+    
+    <td>Function</td>
+    <td><code><a href="#get_tendencia" class="internal-link" title="src.analysis.get_tendencia">get<wbr></wbr>_tendencia</a></code></td>
+    <td>Interpreta el pendent de la regressió lineal per categoritzar la tendència.</td>
   </tr>
 </table>
           
@@ -335,10 +367,81 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p><ol class="rst-simple">
-<li>Anàlisi estadística amb arrodoniment a 2 decimals per a tots els floats.</li>
-</ol>
-</p></div>
+    <div><p class="pre">Informació bàsica sobre l'anàlisis estadística que estem realitzant.
+
+Args:
+    df (pd.DataFrame): Dataset fusionat a analitzar estadísticament.
+Returns:
+    dict: Un diccionari amb el resum estadístic complet (metadades,
+          correlacions, anàlisi per branca i rànquings).</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="src.analysis.get_branch_analysis">
+    
+  </a>
+  <a name="get_branch_analysis">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">get_branch_analysis</span><span class="function-signature">(<span class="rst-sig-param">df, </span><span class="rst-sig-param">branches</span>):</span>
+    
+    <a class="headerLink" href="#get_branch_analysis" title="src.analysis.get_branch_analysis">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="pre">Realitza l'anàlisi estadístic detallat per a cada branca d'estudi.
+
+Agrupa les dades per any acadèmic, calcula les mitjanes, desviacions
+i les tendències temporals per a cada branca de coneixement.
+
+Args:
+    df (pd.DataFrame): Dataset fusionat.
+    branches (numpy.ndarray): Llista de branques a analitzar.
+
+Returns:
+    dict: Diccionari on cada clau és una branca amb les seves estadístiques i tendències.</p></div>
+  </div>
+</div><div class="basefunction">
+  
+  
+  <a name="src.analysis.get_tendencia">
+    
+  </a>
+  <a name="get_tendencia">
+    
+  </a>
+  <div class="functionHeader">
+    
+    
+    <span class="py-keyword">def</span>&#160;<span class="py-defname">get_tendencia</span><span class="function-signature">(<span class="rst-sig-param">years, </span><span class="rst-sig-param">values</span>):</span>
+    
+    <a class="headerLink" href="#get_tendencia" title="src.analysis.get_tendencia">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="docstring functionBody">
+    
+    <div><p class="pre">Interpreta el pendent de la regressió lineal per categoritzar la tendència.
+
+Args:
+    years (list):
+        Llista amb els noms dels períodes temporals (ex: ['19-20', '20-21']).
+    values (list):
+        Llista de valors numèrics (mitjanes) corresponents a cada període.
+
+Returns:
+    str:
+        Categorització de la tendència: 'creciente', 'decreciente' o 'estable'.</p></div>
   </div>
 </div>
         </div>
@@ -350,9 +453,9 @@
 
   
   <div class="container-fluid">
-    <a href="index.html">API Documentation</a> for PEC4_Roige_Benaiges_Marc,
+    <a href="index.html">API Documentation</a> for PCD_PEC4_Roige_Benaiges_Marc,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-01-07 19:05:47.
+    25.10.1 at 2026-01-10 12:18:49.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

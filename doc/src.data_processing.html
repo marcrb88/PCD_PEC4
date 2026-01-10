@@ -32,7 +32,7 @@
       
       <div class="navlinks">
         <span class="navbar-brand">
-          PEC4_Roige_Benaiges_Marc <a href="index.html">API Documentation</a>
+          PCD_PEC4_Roige_Benaiges_Marc <a href="index.html">API Documentation</a>
         </span>
 
         <a href="moduleIndex.html">
@@ -172,7 +172,7 @@
 
       <div class="thingTitle">
         <span>Namespace Package</span>
-        <code><a href="index.html" class="internal-link" title="The parent of this module">src</a></code> 
+        <code><a href="src.html" class="internal-link" title="The parent of this module">src</a></code> 
       </div>
       
       <div>
@@ -298,7 +298,7 @@
         
 
         <div class="page-header">
-          <h1 class="module"><code><code><a href="index.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.data_processing.html" class="internal-link" title="src.data_processing">data_processing</a></code></code></h1>
+          <h1 class="module"><code><code><a href="src.html" class="internal-link">src</a></code><wbr></wbr>.<code><a href="src.data_processing.html" class="internal-link" title="src.data_processing">data_processing</a></code></code></h1>
           <div id="show-private">
             <button class="btn btn-link" onclick="togglePrivate()">Toggle Private API</button>
           </div>
@@ -313,7 +313,9 @@
         </div>
 
         <div class="moduleDocstring">
-          <div><p class="undocumented">Undocumented</p></div>
+          <div><p>Mòdul de neteja de les dades i filtrat.</p>
+<p>Aquest mòdul conté les funcions per netejar, homogeneïtzar columnes i agregar dades de rendiment i abandonament universitari. Inclou la lògica per fusionar ambdós datasets mitjançant una operació de fusió.</p>
+</div>
         </div>
 
         <div id="split-tables">
@@ -324,17 +326,17 @@
     
     <td>Function</td>
     <td><code><a href="#aggregate_by_branch" class="internal-link" title="src.data_processing.aggregate_by_branch">aggregate<wbr></wbr>_by<wbr></wbr>_branch</a></code></td>
-    <td>Agrupa per les característiques demanades i calcula la mitjana.</td>
+    <td>Agrupem totes les files per les característiques demanades i calculem la mitjana de la mètrica en ambdós datasets.</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#clean_and_homogenize" class="internal-link" title="src.data_processing.clean_and_homogenize">clean<wbr></wbr>_and<wbr></wbr>_homogenize</a></code></td>
-    <td>Reanomena columnes de taxa_abandonament per coincidir amb rendiment.</td>
+    <td>Reanomenem les columnes del dataset taxa_abandonament.xlsx perquè coincideixi amb el dataset rendiment_estudiants.xlsx. També eliminem les columnes mencionades a l'enunciat.</td>
   </tr><tr class="function">
     
     <td>Function</td>
     <td><code><a href="#merge_datasets" class="internal-link" title="src.data_processing.merge_datasets">merge<wbr></wbr>_datasets</a></code></td>
-    <td>Fusiona ambdós datasets</td>
+    <td>Fusionem ambdós datasets en un. El dataset resultant només contindrà les files coincidents en ambdós datasets.</td>
   </tr>
 </table>
           
@@ -365,10 +367,15 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p><ol class="rst-simple">
-<li>Agrupa per les característiques demanades i calcula la mitjana.</li>
-</ol>
-</p></div>
+    <div><p class="pre">Agrupem totes les files per les característiques demanades i
+calculem la mitjana de la mètrica en ambdós datasets.
+
+Args:
+    df (pd.DataFrame): Dataset de rendiment acadèmic o d'abandonament.
+    metric_col (string): Columna amb el rendiment o abandonament mitjà.
+Returns:
+    pd.DataFrame: Dataset de rendiment mitjà en cas del dataset de rendiment i amb taxa mitjana
+    d'abandonament en cas del dataset d'abandonament.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -392,11 +399,16 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p><ol class="rst-simple">
-<li>Reanomena columnes de taxa_abandonament per coincidir amb rendiment.</li>
-<li>Elimina columnes innecessàries segons l'enunciat.</li>
-</ol>
-</p></div>
+    <div><p class="pre">Reanomenem les columnes del dataset taxa_abandonament.xlsx perquè coincideixi
+amb el dataset rendiment_estudiants.xlsx.
+També eliminem les columnes mencionades a l'enunciat.
+
+Args:
+    df_perf (pd.DataFrame): Dataset de rendiment acadèmic.
+    df_aband (pd.DataFrame): Dataset d'abandonament acadèmic.
+Returns:
+    pd.DataFrame: Dataset de rendiment acadèmic netejat i transformat.
+    pd.DataFrame: Dataset d'abandonament acadèmic amb les columnes renombrades.</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -420,10 +432,14 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p><ol class="rst-simple">
-<li>Fusiona ambdós datasets</li>
-</ol>
-</p></div>
+    <div><p class="pre">Fusionem ambdós datasets en un. El dataset resultant només contindrà les files
+coincidents en ambdós datasets.
+
+Args:
+    df_perf (pd.DataFrame): Dataset de rendiment acadèmic.
+    df_aband (pd.DataFrame): Dataset d'abandonament.
+Returns:
+    pd.DataFrame: Dataset final resultat de la fusió d'ambdós datasets.</p></div>
   </div>
 </div>
         </div>
@@ -435,9 +451,9 @@
 
   
   <div class="container-fluid">
-    <a href="index.html">API Documentation</a> for PEC4_Roige_Benaiges_Marc,
+    <a href="index.html">API Documentation</a> for PCD_PEC4_Roige_Benaiges_Marc,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    25.10.1 at 2026-01-07 19:05:47.
+    25.10.1 at 2026-01-10 12:18:49.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

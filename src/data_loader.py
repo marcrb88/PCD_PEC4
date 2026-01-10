@@ -44,8 +44,10 @@ def load_dataset(path=None):
             path = "data/rendiment_estudiants.xlsx"
 
     if not os.path.exists(path):
+        print(f"ERROR: No s'ha trobat l'arxiu a la ruta: {path}")
         raise FileNotFoundError(f"No s'ha trobat l'arxiu a la ruta: {path}")
 
+    print(f"Carregant el dataset: {path}...")
     df = pd.read_excel(path)
 
     return df

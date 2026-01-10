@@ -27,10 +27,10 @@ def mostrar_menu():
 
 
 def main():
-    # Variables d'estat per emmagatzemar els DataFrames entre passos
-    perf_df = None  # Per a les dades de rendiment
-    drop_df = None  # Per a les dades d'abandonament
-    merged_df = None  # Per al dataset final fusionat
+    # Variables d'estat per emmagatzemar els DataFrames entre passos.
+    perf_df = None  # Dataframe de rendiment.
+    drop_df = None  # Dataframe abandonament.
+    merged_df = None  # Per al dataset fusionat.
 
     while True:
         choice = mostrar_menu()

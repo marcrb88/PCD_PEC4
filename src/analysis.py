@@ -13,9 +13,7 @@ from scipy.stats import linregress, pearsonr
 
 def get_tendencia(years, values):
     """
-    Funció que ens interpreta el pendent resultat de calcular la regressió lineal
-    per acabar categoritzant l'evolució en tres categories diferents:
-    estable, creixent i decreixent.
+    Interpreta el pendent de la regressió lineal per categoritzar la tendència.
 
     Args:
         years (list): Llista amb els noms dels períodes temporals (ex: ['19-20', '20-21']).
