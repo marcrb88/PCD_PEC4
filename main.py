@@ -25,9 +25,9 @@ def run_batch_mode(level, path_rendiment, path_abandonament):
         if path_rendiment is None and path_abandonament is None:
             try:
                 df_exploracio = load_dataset(None)
-                print("\n--- Vista prèvia del Dataset Seleccionat ---")
+                print("\n--- Vista prèvia del dataset Seleccionat ---")
                 print(df_exploracio.head())
-                print("Finalitzat Exercici 1 (Exploració interactiva).")
+                print("Finalitzat exercici 1")
                 return
             except Exception as e:
                 print(f"Error: {e}")
@@ -35,20 +35,20 @@ def run_batch_mode(level, path_rendiment, path_abandonament):
 
         # CAS B: L'usuari selecciona l'exercici 1 i passa el path de rendiment com a argument.
         elif path_rendiment is not None and path_abandonament is None:
-            print(f"   -> Carregant NOMÉS Rendiment: {path_rendiment}")
+            print(f"   -> Carregant NOMÉS rendiment: {path_rendiment}")
             df = load_dataset(path_rendiment)
-            print("\n--- Vista prèvia Rendiment ---")
+            print("\n--- Vista prèvia rendiment acadèmic ---")
             print(df.head())
-            print("Finalitzat Exercici 1 (Exploració Rendiment).")
+            print("Finalitzat exercici 1.")
             return
 
         # CAS C: L'usuari selecciona l'exercici 1 i passa el path d'abandonament com a argument.
         elif path_abandonament is not None and path_rendiment is None:
-            print(f"   -> Carregant NOMÉS Abandonament: {path_abandonament}")
+            print(f"   -> Carregant NOMÉS abandonament: {path_abandonament}")
             df = load_dataset(path_abandonament)
-            print("\n--- Vista prèvia Abandonament ---")
+            print("\n--- Vista prèvia abandonament acadèmic ---")
             print(df.head())
-            print("Finalitzat Exercici 1 (Exploració Abandonament).")
+            print("Finalitzat exercici 1.")
             return
 
     # PREPARACIÓ PER NIVELLS SUPERIORS
@@ -81,7 +81,7 @@ def run_batch_mode(level, path_rendiment, path_abandonament):
 
     if level == 2:
         print(f"Datasets fusionats. Total files: {len(merged_df)}")
-        print("Finalitzat Exercici 2.")
+        print("Finalitzat exercici 2.")
         return
 
     # Exercici 3.
@@ -89,13 +89,13 @@ def run_batch_mode(level, path_rendiment, path_abandonament):
     plot_temporal_trends(merged_df, "Marc_Roige")
 
     if level == 3:
-        print("Gràfics generats a 'src/img/'. Finalitzat Exercici 3.")
+        print("Gràfics generats a 'src/img/'. Finalitzat exercici 3.")
         return
 
     # Exercici 4.
     print("\n4. [Ex 4] Generant informe estadístic...")
     analyze_dataset(merged_df)
-    print("Informe generat a 'src/report/'. Finalitzat Exercici 4 (Flux complet).")
+    print("Informe generat a 'src/report/'. Finalitzat exercici 4 (Flux complet).")
 
 
 def main():
@@ -109,7 +109,7 @@ def main():
     parser.add_argument(
         '-ex', '--exercise',
         type=int,
-        choices=[1, 2, 3, 4, 5],
+        choices=[1, 2, 3, 4],
         help="Nivell d'execució (1-4). Si no s'indica, s'executa tot."
     )
 
@@ -121,10 +121,6 @@ def main():
 
     args = parser.parse_args()
     target_level = args.exercise
-    # Si l'usuari introdueix un exercici vàlid, sortim del programa.
-    if target_level and (target_level <= 0 or target_level > 4):
-        print("Nombre d'exercici invàlid. Introdueix un exercici vàlid (1-4).")
-        sys.exit(1)
 
     # 2. Determinació de paths
     final_rendiment = None

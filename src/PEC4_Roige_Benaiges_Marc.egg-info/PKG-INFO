@@ -1,8 +1,18 @@
-Metadata-Version: 2.1
-Name: PEC4-Roige-Benaiges-Marc
+Metadata-Version: 2.4
+Name: PEC4_Roige_Benaiges_Marc
 Version: 0.1.0
 Summary: PEC4 - Anàlisi de Rendiment i Abandonament Acadèmic
 Author: Marc Roigé Benaiges
 Author-email: marcroige@uoc.edu
 Requires-Python: >=3.8
 License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: openpyxl
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: author-email
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
